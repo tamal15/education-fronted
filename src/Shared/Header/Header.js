@@ -17,7 +17,7 @@ const Header = () => {
             <Navbar expand="lg">
                 <Container>
                 {/* onClick={handleClick} */}
-                    <NavLink  to="/" className='logo'><span>Edu Bro.</span></NavLink>
+                    <NavLink  to="/" className='logo'><span>Education</span></NavLink>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     {/* onClick={handleClick} */}
