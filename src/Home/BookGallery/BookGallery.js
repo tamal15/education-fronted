@@ -1,7 +1,7 @@
 import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import './BookGallery.css'
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -15,7 +15,7 @@ import { Autoplay, EffectCoverflow, Pagination } from "swiper";
 const BookGallery = () => {
     return (
         <div className="py-5">
-            <h1 data-text="User Reviews" className="text-center my-3 user-reviews">Books Gallery</h1>
+            <h1 data-text="User Reviews" className="text-center my-3 user-reviews mb-5">Books Gallery</h1>
             <>
                 <Swiper
                     effect={"coverflow"}
@@ -43,20 +43,20 @@ const BookGallery = () => {
                     className="mySwiper"
                 >
                     <SwiperSlide>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/41VFNO6C4HL.jpg" alt="..." width="250" height="300" />
+                        <img src="https://i.ibb.co/Sx861HL/2.jpg" alt="..." width="250" height="300" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src="https://tutorialzine.com/media/2018/01/NodeJs_Succinctly2.jpg" alt="..." width="250" height="300" />
+                        <img src="https://m.media-amazon.com/images/I/51iwVVGraqL.jpg" alt="..." width="250" height="300" />
                     </SwiperSlide>
 
                     <SwiperSlide>
-                        <img src="https://i0.wp.com/www.rankred.com/wp-content/uploads/2020/12/C-Programming.jpg?resize=338%2C400&ssl=1" alt="..." width="250" height="300" />
+                        <img src="https://i.ibb.co/fNR0gWW/3.jpg" alt="..." width="250" height="300" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src="https://pmem.io/images/programming_pmem_book_420x350px.png" alt="..." width="250" height="300" />
+                        <img src="https://i.ibb.co/rypJb5p/4.jpg" alt="..." width="250" height="300" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/41VFNO6C4HL.jpg" alt="..." width="250" height="300" />
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/51BKn+OKctL._SX332_BO1,204,203,200_.jpg" alt="..." width="250" height="300" />
                     </SwiperSlide>
                     <SwiperSlide>
                         <img src="https://tutorialzine.com/media/2018/01/NodeJs_Succinctly2.jpg" alt="..." width="250" height="300" />
