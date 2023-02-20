@@ -1,0 +1,22 @@
+.single-service{
+    padding: 15px 30px 10px 0;
+    text-align: right;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: all .5s;
+}
+.single-service:hover{
+    background-color: #1289A7;
+    color: white;
+}
+
+.features{
+    background-color: #1289A7;
+    color:white;
+}
+
+.featuress{
+    --tw-text-opacity: 1;
+    color:white;
+    /* color: rgb(148 163 184/var(--tw-text-opacity)); */
+}

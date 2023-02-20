@@ -7,8 +7,8 @@ const UserWelcome = () => {
         <div className='dashboard-welcome'>
         <Row>
             <Col md={6}>
-                <h2>Hello, <span className='fs-1'>{user.displayName}</span></h2>
-                <p className='fs-4'>Welcome to Education</p>
+                <h2 style={{color:"white"}}>Hello, <span style={{color:"#46AADC"}} className='fs-1'>{user.displayName}</span></h2>
+                <p style={{color:"white"}} className='fs-4'>Welcome to <span style={{color:"#46AADC",fontWeight:"600"}}>Education</span> Desk</p>
             </Col>
             <Col md={6}>
                 <div className="dashboard-image">

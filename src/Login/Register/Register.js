@@ -33,29 +33,52 @@ const Register = () => {
         registerUser(data.email, data.password, data.name, location, navigate)
     }
     return (
-        <div className='py-5'>
+     <div className='signin-background'>
+           <div className='py-5'>
         <Container>
             <Row>
-                <Col md={{ span: 8, offset: 2 }}>
-                    <div className="login-form text-center">
-                        <h2 className='mb-5'>Sign Up to Edu Bro</h2>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <input className='w-75 mb-3'  {...register("name", { required: true })} placeholder='Enter Full Name' /> <br />
-                            <input className='w-75 mb-3'  {...register("email", { required: true })} placeholder='Enter Email' /> <br />
-                            <input className='w-75 mb-3' {...register("password", { required: true })} placeholder='Enter Password' /> <br />
-                            <input className='w-75 mb-3' {...register("password2", { required: true })} placeholder='Re-enter Password' /> <br />
+              <div className='row'>
+                <div className='col-lg-4'>
+                    <div className='mt-5'>
+                    <img  data-aos="zoom-in" height="380" width="350" src='https://i.ibb.co/PYRQwwP/1622955529676.png' alt="" />
+                    </div>
 
-                            <button type='submit'>Sign Up</button>
+                </div>
+
+                <div className='col-lg-8'>
+
+                <Col md={{ span: 8, offset: 2 }}>
+                    <div className="login-form text-center shadow" style={{background:"#182533",borderRadius:"20px"}}>
+                        <h2 className='mb-5 text-white'>Sign Up to Education Desk</h2>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <input
+                            style={{fontWeight:"500"}}
+                            className='w-75 mb-3'  {...register("name", { required: true })} placeholder='Enter Full Name' /> <br />
+                            <input
+                            style={{fontWeight:"500"}}
+                            className='w-75 mb-3'  {...register("email", { required: true })} placeholder='Enter Email' /> <br />
+                            <input
+                            styele={{fontWeight:"500"}}
+                            className='w-75 mb-3' {...register("password", { required: true })} placeholder='Enter Password' /> <br />
+                            <input
+                            style={{fontWeight:"500"}}
+                            className='w-75 mb-3' {...register("password2", { required: true })} placeholder='Re-enter Password' /> <br />
+
+                            <button className='submit-all' type='submit'>Sign Up</button>
                         </form>
                         <div className='login-meta mt-4'>
-                            <p>Already have an account? <Link to={'/login'}><span className='login-links'>Login here</span></Link></p>
-                            <span style={{ cursor: "pointer" }} className='fs-4'>Continue with <FcGoogle onClick={handleGoogleLogin} className='fs-2 google' /></span>
+                            <p className='text-white'>Already have an account? <Link to={'/login'}><span className='login-links'style={{color:"#46AADC"}}>Login here</span></Link></p>
+                            <span style={{ cursor: "pointer" }} className='fs-4 text-white'>Continue with <FcGoogle onClick={handleGoogleLogin} className='fs-2 google' /></span>
                         </div>
                     </div>
                 </Col>
+
+                </div>
+              </div>
             </Row>
         </Container>
     </div>
+     </div>
     );
 };
 

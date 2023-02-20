@@ -1,25 +1,31 @@
 import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import useAuth from '../../hooks/useAuth';
 // import useFirebase from '../../../hooks/useFirebase';
 // import Swal from 'sweetalert/sweetalert';
 
 const AddQuestion = () => {
+    const {admin}=useAuth()
     // const { user } = useFirebase()
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         // data.userName = user.displayName
         // data.email = user.email
-        data.status = 'Pending'
+        // data.status = 'Pending'
+        data.role=admin;
 
-        fetch(`http://localhost:5000/postQuestion`, {
+        fetch("http://localhost:5000/postQuestion", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result)
+                if(result.insertedId){
+                    alert('added successfully');
+                    reset()
+                }
                 // Swal.fire(
                 //     'Question Posted Successfully.',
                 // )
@@ -31,33 +37,34 @@ const AddQuestion = () => {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <div className="login-form text-center">
-                            <h2 className='mb-5'>Add Your Question</h2>
+                        <div className="login-form text-center shadow" style={{background:"#182533",borderRadius:"20px"}}>
+                            <h2 className='mb-5 text-white'>Add Your Question</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
 
-                                <input className='w-75 mb-3'  {...register("subject", { required: true })} placeholder='Enter Course Title' /> <br />
-                                <input className='w-75 mb-3'  {...register("code", { required: true })} placeholder='Enter Course Code' /> <br />
+                                <input
+                                style={{fontWeight:"500"}}
+                                className='w-75 mb-3'  {...register("subject", { required: true })} placeholder='Enter Course Title' /> <br />
+                                <input
+                                  style={{fontWeight:"500"}}
+                                className='w-75 mb-3'  {...register("code", { required: true })} placeholder='example: cse234-mid/final-2018' /> <br />
 
                                 <select {...register("department")}>
+                                <option value="">Department</option>
                                     <option value="ece">ECE</option>
                                     <option value="cse">CSE</option>
                                     <option value="bba">BBA</option>
                                     <option value="diploma">diploma</option>
                                 </select>
+                                <br></br>
+                                <br></br>
 
-                                <select {...register("semester")}>
-                                    <option value="1">1st</option>
-                                    <option value="2">2nd</option>
-                                    <option value="3">3rd</option>
-                                    <option value="4">4th</option>
-                                    <option value="5">5th</option>
-                                    <option value="6">6th</option>
-                                    <option value="7">7th</option>
-                                    <option value="8">8th</option>
+                                {/* <select {...register("type")}>
+                                <option value="">Question Type</option>
+                                    <option value="mid">Mid</option>
+                                    <option value="final">Final</option>
+                                 </select> */}
 
-                                </select>
-
-                                <select {...register("year")}>
+                                {/* <select {...register("year")}>
                                     <option value="">Select Year</option>
                                     <option value="2027">2027</option>
                                     <option value="2026">2026</option>
@@ -77,13 +84,15 @@ const AddQuestion = () => {
                                     <option value="2012">2012</option>
                                     <option value="2011">2011</option>
                                     <option value="2010">2010</option>
-                                </select>
+                                </select> */}
 
 
 
-                                <input className='w-75 mb-3' {...register("driveLink", { required: true })} placeholder='Question Link' /> <br />
+                                <input
+                                  style={{fontWeight:"500"}}
+                                className='w-75 mb-3' {...register("driveLink", { required: true })} placeholder='Question Link' /> <br />
 
-                                <button type='submit'>Submit</button>
+                                <button className='submit-all' type='submit'>Submit</button>
                             </form>
 
                         </div>

@@ -21,7 +21,7 @@ import initial from "../../Login/Firebase/firebase.init";
     const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const [admin, setAdmin] = useState(false)
 
 //   navbar toggle 
 const [toggle,setToggle]=useState(false)
@@ -141,6 +141,15 @@ const registerUser = (email, password, name, location, navigate) => {
     return () => unsubscribe;
   }, [auth]);
 
+  //ADMIN CONDITIONAL DATALOAD
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setAdmin(data?.role)
+      })
+  }, [user.email])
+
   return {
     user,
     loginWithGoogle,
@@ -152,6 +161,7 @@ const registerUser = (email, password, name, location, navigate) => {
     toggle,
     setToggle,
     handleClick,
+    admin
    
   }
   }

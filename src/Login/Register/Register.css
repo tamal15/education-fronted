@@ -7,3 +7,10 @@
 .google-icon:hover{
     color:white;
 }
+
+.signin-background{
+    background-color: #0E1621;
+    /* background-color: #182533; */
+    /* width:100%; */
+    height:110vh; 
+}

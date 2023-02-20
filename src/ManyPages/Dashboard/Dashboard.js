@@ -5,60 +5,135 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import './Dashboard.css';
 import { FaThLarge, FaUser, FaBookmark, FaCommentDots, FaSignOutAlt, FaTasks, FaUserShield, FaSchool } from 'react-icons/fa'
 import useAuth from '../hooks/useAuth';
+import Header from '../../Shared/Header/Header';
+import Footer from '../../Shared/Footer/Footer';
+import HomeIcon from '@mui/icons-material/Home';
 
 const Dashboard = () => {
     const { admin, userLogOut } = useAuth()
     return (
-        <div className='dashboard'>
+        <div  className='dashboard' style={{background:"#0E1621"}}>
+            <Header></Header>
+          
             <Row>
-                <Col md={2}>
-                    <div className="dashboard-menu shadow px-3 py-4">
-                        <div className="logo mb-4">
-                            <h4><span style={{color:"#1289A7"}}>Education</span> Desk</h4>
+                <Col md={3}>
+                    <div className="dashboard-menu   px-5 py-4 "style={{background:"#182533"}}>
+                        <div className="logo mb-4 ">
+                            <h4 style={{textAlign:"left"}}><span style={{color:"#CCCCCC"}}>Education</span> <span style={{color:"white"}}> Desk</span></h4>
                         </div>
-                        <ul>
-                            <li>
+                        <ul className=''>
+                            <li className=''>
+                                <NavLink className="des" to={'/'} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><HomeIcon className='me-1' /> Home</NavLink>
+                            </li>
+                            <li className=''>
                                 <NavLink className="des" to={`welcome`} style={({ isActive }) => ({
-                                    color: isActive ? "#1289A7" : "#1289A7",
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
                                 })}><FaThLarge className='me-1' /> Dashboard</NavLink>
                             </li>
-                          <div>
-                          <li>
-                                <NavLink className="des" to={`user-profile`} style={({ isActive }) => ({
-                                    color: isActive ? "#1289A7" : "#1289A7",
-                                })}><FaUser className='me-1' />My Profile</NavLink>
-                            </li>
-                          </div>
+                           
                             <li>
-                                <NavLink className="des" to={`my-questions`} style={({ isActive }) => ({
-                                    color: isActive ? "#1289A7" : "#1289A7",
-                                })}><FaBookmark className='me-1' /> My Questions</NavLink>
+                                  <NavLink className="des" to={`userProfile`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaUser style={{textAlign:"left"}} className='me-1' /> My Profile</NavLink>
+                              </li>
+
+
+                            {
+                                admin &&
+                               <div>
+                                 
+                                <li>
+                                <NavLink className="des" to={`manageQuestion`} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><FaBookmark className='me-1' /> Pending Question</NavLink>
                             </li>
-                            <li>
-                                <NavLink className="des" to={`my-labs`} style={({ isActive }) => ({
-                                    color: isActive ? "#1289A7" : "#1289A7",
-                                })}><FaBookmark className='me-1' /> Add Labs</NavLink>
+                                <li>
+                                <NavLink className="des" to={`add`} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><FaBookmark className='me-1' /> Add Question</NavLink>
                             </li>
-                            <li>
-                                <NavLink className="des" to={`my-books`} style={({ isActive }) => ({
-                                    color: isActive ? "#1289A7" : "#1289A7",
-                                })}><FaCommentDots className='me-1' /> Add Books</NavLink>
+                                <li>
+                                <NavLink className="des" to={`addBook`} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><FaBookmark className='me-1' /> Add Book</NavLink>
                             </li>
-                            <li>
-                                <NavLink className="des" to={`my-syllabus`} style={({ isActive }) => ({
-                                    color: isActive ? "#1289A7" : "#1289A7",
-                                })}><FaSchool className='me-1' /> Add Syllabus</NavLink>
+                                <li>
+                                <NavLink className="des" to={`adminaddSyllbus`} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><FaBookmark className='me-1' /> Add Syllbus</NavLink>
                             </li>
-                            <li>
-                                <NavLink className="des" to={`my-blogs`} style={({ isActive }) => ({
-                                    color: isActive ? "#1289A7" : "#1289A7",
-                                })}><FaTasks className='me-1' /> Add Blogs</NavLink>
+                                <li>
+                                <NavLink className="des" to={`manageBook`} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><FaBookmark className='me-1' /> Pending Book</NavLink>
                             </li>
-                            <li>
-                                <NavLink className="des" to={`user-review`} style={({ isActive }) => ({
-                                    color: isActive ? "#1289A7" : "#1289A7",
-                                })}><FaBookmark className='me-1' /> user review</NavLink>
+                                <li>
+                                <NavLink className="des" to={`manageSyllbus`} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><FaBookmark className='me-1' /> Pending Syllbus</NavLink>
                             </li>
+                               </div>
+                            }
+
+
+                         {
+                            !admin && 
+                           <div style={{textAlign:"left"}}>
+
+    
+                            
+                              <li>
+                                  <NavLink className="des" to={`useraddQuestion`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaBookmark className='me-1' /> Add Questions</NavLink>
+                              </li>
+                              {/* <li>
+                                  <NavLink className="des" to={`my-labs`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaBookmark className='me-1' /> Add Labs</NavLink>
+                              </li> */}
+                              <li>
+                                  <NavLink className="des" to={`userBook`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaCommentDots className='me-1' /> Add Books</NavLink>
+                              </li>
+                              <li>
+                                  <NavLink className="des" to={`userDisplaySyllbus`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaSchool className='me-1' /> Add Syllabus</NavLink>
+                              </li>
+                              <li>
+                                  <NavLink className="des " to={`review`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaTasks className='me-1' /> UserReview</NavLink>
+                              </li>
+
+                           </div>
+                           
+                       
+                            
+                            
+                        }
+
+                                <li className=''>
+                                  <NavLink className="des" to={'/'} style={({ isActive }) => ({
+                                      color: isActive ? "white" : "white",
+                                  })}><li onClick={userLogOut} className='dashboard-logOut'>
+                                  <FaSignOutAlt className='me-1' /> Log Out
+                              </li></NavLink>
+                              </li>
+
+                           
+
+                           
+                          
+                           {/* <NavLink className="des" to={'/'}><li onClick={userLogOut} className='dashboard-logOut'>
+                                <FaSignOutAlt className='me-1' /> Log in
+                            </li></NavLink> */}
+                           
+                            
                             
 
                             {/* <li>
@@ -85,16 +160,15 @@ const Dashboard = () => {
                             </li> */}
                             {/* </div>} */}
 
-                            <Link className="des" to={'/'}><li onClick={userLogOut} className='dashboard-logOut'>
-                                <FaSignOutAlt className='me-1' /> Log Out
-                            </li></Link>
+                           
                         </ul>
                     </div>
                 </Col>
-                <Col md={10} className='px-5 py-5'>
+                <Col md={9} className='py-5' style={{background:"#0E1621"}}>
                     <Outlet />
                 </Col>
             </Row>
+            <Footer></Footer>
         </div >
     );
 };

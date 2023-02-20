@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from '../ManyPages/hooks/useAuth';
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 
 
 
@@ -29,39 +31,43 @@ const Login = () => {
         loginWithOwnEmailAndPass(data.email, data.password, location, navigate)
     }
     return (
-        <div className='py-5'>
+      <div className='login-background'>
+          <div className='py-5'>
+            {/* <Header></Header> */}
             <Container>
                 <Row>
                 <div className='row'>
                     <div className='col-lg-4'>
-                     <div className='images mt-5'>
-                     <img height="300" width="300"src="https://i.ibb.co/2MrGp9J/1.webp"/>
+                     <div className='mt-5'>
+                     <img  data-aos="zoom-in" height="330" width="350" src='https://i.ibb.co/PYRQwwP/1622955529676.png' alt="" />
                      </div>
                     </div>
                     <div className='col-lg-8'>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <div className="login-form text-center">
-                            <h2 className='mb-5'>Login to Education</h2>
+                        <div className="login-form text-center shadow" style={{background:"#182533",borderRadius:"20px"}}>
+                            <h2 className='mb-5 text-white'>Login to Education Desk</h2>
                             {/* onSubmit={handleSubmit(onSubmit)} */}
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <input
+                                style={{fontWeight:"500"}}
                                     className='w-75 mb-3'
                                     {...register("email", { required: true })}
                                     placeholder='Enter Email' />
                                 <br />
 
                                 <input
+                                style={{fontWeight:"500"}}
                                     className='w-75 mb-3'
                                     {...register("password", { required: true })} placeholder='Enter Password' />
                                 <br />
 
-                                <button type='submit'>Login</button>
+                                <button className='submit-all' type='submit'>Login</button>
                             </form>
                             <div className='login-meta mt-4'>
-                                <p>New to Education <Link to={'/register'}><span className='login-links'>Create a free Account</span></Link></p>
-                                <span style={{ cursor: "pointer" }} 
+                                <p className='text-white'>New to Education <Link to={'/register'}><span className='login-links' style={{color:"#46AADC"}}>Create a free Account</span></Link></p>
+                                <span onClick={handleGoogleLogin} style={{ cursor: "pointer" }} 
                                 // onClick={handleGoogleLogin}
-                                 className='fs-4'>Continue with <FcGoogle onClick={handleGoogleLogin} className='fs-2 google' /></span>
+                                 className='fs-4 text-white'>Continue with <FcGoogle  className='fs-2 google' /></span>
                             </div>
                         </div>
                     </Col>
@@ -69,7 +75,9 @@ const Login = () => {
                 </div>
                 </Row>
             </Container>
+          
         </div>
+      </div>
     );
 };
 
